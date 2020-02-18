@@ -224,17 +224,17 @@ dd if=/dev/random of=/dev/urandom bs=1 count=32 > /dev/null
 # This is supposedly sufficient. But because we're not sure if hardware entropy
 # is really any good on virtualized systems, we'll also seed from Ubuntu's
 # pollinate servers:
-
+echo "1"
 pollinate  -q -r
 
 # Between these two, we really ought to be all set.
-
+echo "2"
 # We need an ssh key to store backups via rsync, if it doesn't exist create one
 if [ ! -f /root/.ssh/id_rsa_miab ]; then
 	echo 'Creating SSH key for backup…'
 	ssh-keygen -t rsa -b 2048 -a 100 -f /root/.ssh/id_rsa_miab -N '' -q
 fi
-
+echo "3"
 # ### Package maintenance
 #
 # Allow apt to install system updates automatically every day.
@@ -245,7 +245,7 @@ APT::Periodic::Update-Package-Lists "1";
 APT::Periodic::Unattended-Upgrade "1";
 APT::Periodic::Verbose "0";
 EOF
-
+echo "4"
 # ### Firewall
 
 # Various virtualized environments like Docker and some VPSs don't provide #NODOC
@@ -273,7 +273,7 @@ if [ -z "${DISABLE_FIREWALL:-}" ]; then
 
 	ufw --force enable;
 fi #NODOC
-
+echo "5"
 # ### Local DNS Service
 
 # Install a local recursive DNS server --- i.e. for DNS queries made by
