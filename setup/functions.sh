@@ -150,7 +150,7 @@ function ufw_allow {
 }
 
 function restart_service {
-	hide_output service $1 restart
+	service $1 restart
 }
 
 ## Dialog Functions ##
