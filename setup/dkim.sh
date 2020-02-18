@@ -88,4 +88,7 @@ hide_output systemctl enable opendmarc
 restart_service opendkim
 restart_service opendmarc
 restart_service postfix
+service opendkim restart
+service opendmarc restart
+service postfix restart
 
