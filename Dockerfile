@@ -37,7 +37,7 @@ RUN apt-get update && apt-get -y install software-properties-common
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install git nano sudo curl lsb-release dialog locales net-tools iproute2 systemd
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install opendkim opendkim-tools opendmarc openssh-server python3 python3-dev python3-pip netcat-openbsd wget curl git sudo coreutils bc haveged pollinate unattended-upgrades cron ntp fail2ban
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install nsd ldnsutils openssh-client dovecot-core dovecot-imapd dovecot-pop3d dovecot-lmtpd dovecot-sqlite sqlite3 dovecot-sieve dovecot-managesieved dovecot-lucene
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install nsd ldnsutils openssh-client 
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install postfix postfix-pcre postgrey ca-certificates python3-flask links duplicity libyaml-dev python3-dnspython python3-dateutil python-pip
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install build-essential libssl-dev libffi-dev python3-dev munin munin-node libcgi-fast-perl
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install spampd razor pyzor dovecot-antispam libmail-dkim-perl openssl 
