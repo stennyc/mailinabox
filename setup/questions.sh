@@ -160,16 +160,17 @@ fi
 if [ -z "${PRIVATE_IPV6:-}" ]; then
 	PRIVATE_IPV6=$(get_default_privateip 6)
 fi
-if [[ -z "$PRIVATE_IP" && -z "$PRIVATE_IPV6" ]]; then
-	echo
-	echo "I could not determine the IP or IPv6 address of the network inteface"
-	echo "for connecting to the Internet. Setup must stop."
-	echo
-	hostname -I
-	route
-	echo
-	exit
-fi
+# for docker happya
+#if [[ -z "$PRIVATE_IP" && -z "$PRIVATE_IPV6" ]]; then
+#	echo
+#	echo "I could not determine the IP or IPv6 address of the network inteface"
+#	echo "for connecting to the Internet. Setup must stop."
+#	echo
+#	hostname -I
+#	route
+#	echo
+#	exit
+#fi
 
 # Automatic configuration, e.g. as used in our Vagrant configuration.
 if [ "$PUBLIC_IP" = "auto" ]; then
