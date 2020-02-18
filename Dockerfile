@@ -32,7 +32,7 @@ RUN useradd -m user-data
 # of the image extremely fast.
 
 # Update system packages.
-RUN apt-get update && apt-get -y install software-properties-common
+RUN apt-get update && apt-get -y install software-properties-common apt-utils
 #RUN add-apt-repository -y ppa:mail-in-a-box/ppa
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install git nano sudo curl lsb-release dialog locales net-tools iproute2 systemd
