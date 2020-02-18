@@ -33,8 +33,8 @@ RUN useradd -m user-data
 
 # Update system packages.
 RUN apt-get update && apt-get -y install software-properties-common
-RUN add-apt-repository -y ppa:mail-in-a-box/ppa
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y upgrade
+#RUN add-apt-repository -y ppa:mail-in-a-box/ppa
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install git nano sudo curl lsb-release dialog locales net-tools iproute2 systemd
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install opendkim opendkim-tools opendmarc openssh-server python3 python3-dev python3-pip netcat-openbsd wget curl git sudo coreutils bc haveged pollinate unattended-upgrades cron ntp fail2ban
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install nsd ldnsutils openssh-client dovecot-core dovecot-imapd dovecot-pop3d dovecot-lmtpd dovecot-sqlite sqlite3 dovecot-sieve dovecot-managesieved dovecot-lucene
