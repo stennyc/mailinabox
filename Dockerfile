@@ -42,6 +42,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install postfix postfix-pcre postg
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install build-essential libssl-dev libffi-dev python3-dev munin munin-node libcgi-fast-perl
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install spampd razor pyzor dovecot-antispam libmail-dkim-perl openssl 
 
+RUN locale-gen en_US.UTF-8
+RUN update-locale LANG=en_US.UTF-8
+
 # Install packages needed by Mail-in-a-Box.
 #ADD containers/docker/apt_package_list.txt /tmp/mailinabox_apt_package_list.txt
 #RUN DEBIAN_FRONTEND=noninteractive apt-get install -y $(cat /tmp/mailinabox_apt_package_list.txt)
