@@ -58,5 +58,5 @@ ADD . /usr/local/mailinabox
 #RUN /usr/local/mailinabox/setup/start.sh
 
 ENTRYPOINT ["/sbin/init"]
-CMD ["/usr/local/mailinabox/setup/start.sh"]
+
 
