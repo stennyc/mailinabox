@@ -35,7 +35,7 @@ RUN useradd -m user-data
 RUN apt-get update && apt-get -y install software-properties-common apt-utils
 #RUN add-apt-repository -y ppa:mail-in-a-box/ppa
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install git nano sudo curl lsb-release dialog locales net-tools iproute2 systemd
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install lsb-release dialog locales net-tools iproute2 systemd nano
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install opendkim opendkim-tools opendmarc openssh-server python3 python3-dev python3-pip netcat-openbsd wget curl git sudo coreutils bc haveged pollinate unattended-upgrades cron ntp fail2ban
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install nsd ldnsutils openssh-client 
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install postfix postfix-pcre postgrey ca-certificates python3-flask links duplicity libyaml-dev python3-dnspython python3-dateutil python-pip
@@ -50,10 +50,11 @@ RUN update-locale LANG=en_US.UTF-8
 #RUN DEBIAN_FRONTEND=noninteractive apt-get install -y $(cat /tmp/mailinabox_apt_package_list.txt)
 
 # from questions.sh -- needs merging into the above line
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y dialog python3 python3-pip systemd
+#RUN DEBIAN_FRONTEND=noninteractive apt-get install -y dialog python3 python3-pip systemd
 RUN pip3 install "email_validator==0.1.0-rc4"
 
 # Now add Mail-in-a-Box to the system.
 ADD . /usr/local/mailinabox
+RUN /usr/local/mailinabox/setup/start.sh
 
 ENTRYPOINT ["/sbin/init"]
