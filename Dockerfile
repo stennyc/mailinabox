@@ -55,6 +55,8 @@ RUN pip3 install "email_validator==0.1.0-rc4"
 
 # Now add Mail-in-a-Box to the system.
 ADD . /usr/local/mailinabox
-RUN /usr/local/mailinabox/setup/start.sh
+#RUN /usr/local/mailinabox/setup/start.sh
 
 ENTRYPOINT ["/sbin/init"]
+CMD ["/usr/local/mailinabox/setup/start.sh"]
+
